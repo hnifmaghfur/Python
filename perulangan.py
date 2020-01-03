@@ -1,3 +1,4 @@
+#Melakukan Perulangan dengan python
 def foo(x,a,b,i,j):
     k = j
     ct = 0
