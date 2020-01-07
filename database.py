@@ -19,19 +19,20 @@ sql = """
             duration
         FROM 
             shot 
-        INNER JOIN episode ON shot.episode = episode.season
+        INNER JOIN episode ON shot.episode = episode.id
         INNER JOIN project ON episode.project = project.id
         INNER JOIN status ON shot.status = status.id
         WHERE 
             shot.status = 2
         ORDER BY
-            project.name ASC
+            episode.name ASC
         """
 cursor.execute(sql)
 
 result = cursor.fetchall()
 
-print('Nama Project, Episode, Status, Duration')
-for data in result:
-    print(data)
+#print(len(result))
+# print('Nama Project, Episode, Status, Duration')
+# for data in result:
+#     print(len(data))
 
