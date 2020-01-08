@@ -31,8 +31,7 @@ cursor.execute(sql)
 
 result = cursor.fetchall()
 
-#print(len(result))
-# print('Nama Project, Episode, Status, Duration')
-# for data in result:
-#     print(len(data))
+print('Nama Project, Episode, Status, Duration')
+for data in result:
+    print((data))
 
