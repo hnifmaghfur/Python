@@ -7,20 +7,22 @@ class List(QtWidgets.QDialog):
 
         bg = QtWidgets.QVBoxLayout()
         self.box1 = QtWidgets.QPushButton( "Folder A" )
+        self.box1.setCheckable( True )
         self.box1.clicked.connect ( self.fd )
         self.setWindowTitle( "Button demo" )
+        self.setLayout( bg )
         bg.addWidget( self.box1 )
 
-    def fd( self ):
-        w = QtWidgets.QWidget ()
-        b = QtWidgets.QLabel ( w )
-        b.setText( "Welcome to Maghfur World" )
-        w.setGeometry( 100,100,250,50 )
-        b.move( 50,20 )
-        w.setWindowTitle( "hnifmaghfur" )
+    def fd( self,w ):
+        self.w = QtWidgets.QDialog()
+        self.b = QtWidgets.QLabel (self.w)
+        self.b.setText( "Welcome to Maghfur World" )
+        self.b.move(100,20)
+        self.w.setWindowTitle( "hnifmaghfur" )
+        self.w.exec_()
 
 def main():
-    app =  QtWidgets.QApplication()
+    app =  QtWidgets.QApplication( sys.argv )
     x = List()
     x.show()
     sys.exit(app.exec_())
