@@ -28,11 +28,27 @@ class MainWindow(QtWidgets.QMainWindow):
 		self.dialg = QtWidgets.QFileDialog.getOpenFileName( self, 'Open File', 'D:\\Shortcut\\',"Shortcut files (*.lnk)" )
 		# if self.dialg.exec_():
 		# 	dialgText = str(self.dialg.currentText())
-		for self.isiDialg in self.dialg:
-			self.isiDialg = self.dialg[0]
-			link, sc = self.dialg
-			baseDir = 'D:\\Shortcut'+'\\'+str(len(link))
-			os.mkdir(baseDir)
+		self.isiDialg = self.dialg[0]
+		#link, sc = self.dialg
+		#baseDir = 'D:\\Shortcut'+'\\'+str(len(link))
+		
+		self.label = QtWidgets.QLabel( str(self.isiDialg)[12:], self )
+		self.label.resize(150,40)
+		self.label.move(140,80)
+
+		self.btn = QtWidgets.QPushButton( "Open",self )
+		self.btn.clicked.connect( self.clicked2 )
+		self.btn.resize(70,20)
+		self.btn.move(60,90)
+
+		self.label.show()
+		self.btn.show()
+
+
+	def clicked2(self):
+		self.text = str(self.isiDialg)
+		os.startfile(self.text)
+
 
 
 def main():
